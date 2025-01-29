@@ -21,4 +21,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }} # 从 Secrets 读取 FTP 用户名
           password: ${{ secrets.FTP_PASSWORD }} # 从 Secrets 读取 FTP 密码
           local-dir: ./ # 上传的本地目录（默认是整个项目）
-          server-dir: ./home/ubuntu/sherlock/demo/ # 服务器上的目标目录
+          server-dir: /home/ubuntu/sherlock/demo/ # 服务器上的目标目录
