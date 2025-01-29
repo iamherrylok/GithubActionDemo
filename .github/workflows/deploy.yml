@@ -17,7 +17,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 使用 FTP 部署工具
         with:
-          server: ${{ secrets.FTP_SERVER }} # 从 Secrets 读取服务器地址
+          server: "43.136.26.189" # 从 Secrets 读取服务器地址
           username: ${{ secrets.FTP_USERNAME }} # 从 Secrets 读取 FTP 用户名
           password: ${{ secrets.FTP_PASSWORD }} # 从 Secrets 读取 FTP 密码
           local-dir: ./ # 上传的本地目录（默认是整个项目）
