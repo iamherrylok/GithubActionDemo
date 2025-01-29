@@ -1,0 +1,24 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main # 当代码推送到 main 分支时触发部署
+
+jobs:
+  ftp-deploy:
+    name: FTP Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3 # 检出代码
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5 # 使用 FTP 部署工具
+        with:
+          server: ${{ secrets.FTP_SERVER }} # 从 Secrets 读取服务器地址
+          username: ${{ secrets.FTP_USERNAME }} # 从 Secrets 读取 FTP 用户名
+          password: ${{ secrets.FTP_PASSWORD }} # 从 Secrets 读取 FTP 密码
+          local-dir: ./ # 上传的本地目录（默认是整个项目）
+          server-dir: ./sherlock/demo # 服务器上的目标目录
